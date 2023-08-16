@@ -1,0 +1,10 @@
+G_ID,G_Name,G_State,Room_No,Status
+1,John,Kerala,101,Checked In
+2,Basil,Kerala,102,Checked Out
+3,Hamlin,Kerala,103,Checked In
+4,Robert,Karnataka,104,Checked Out
+5,Hitler,Karnataka,105,Checked In
+6,Albert,Maharashtra,106,Checked Out
+7,Sadao,Tamil Nadu,107,Checked In
+8,Denny,Punjab,108,Checked Out
+9,Dan,Pubjab,109,Checked In
