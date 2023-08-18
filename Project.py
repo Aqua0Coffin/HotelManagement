@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from colorama import Fore, Style
 guest=pd.read_csv("C:\Guest.csv")
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -61,25 +61,14 @@ def count_guest_by_state():
     plt.show()
 
 def plot_guest_status():
-    # Read the data from the CSV file
     df = pd.read_csv('C:\Guest.csv')
-
-    # Group the data by Status and count the number of guests in each group
     grouped_data = df.groupby('Status')['G_ID'].count()
-
-    # Create a pie chart of the guest status percentages
     fig, ax = plt.subplots()
     ax.pie(grouped_data.values, labels=grouped_data.index, autopct='%1.1f%%', startangle=90, colors=['#1f77b4', '#ff7f0e'])
-
-    # Set the chart title and legend
     ax.set_title('Guest Status', fontsize=16)
     ax.legend(title='Status', loc='center left', bbox_to_anchor=(1, 0.5))
-
-    # Add a circle at the center of the chart to make it a donut chart
     circle = plt.Circle((0, 0), 0.7, color='white')
     ax.add_artist(circle)
-
-    # Show the chart
     plt.show()
 
 #Functions of Account Book
@@ -176,7 +165,7 @@ def plot_meanemployee_salaries():
 def display_menu():
     print("Welcome to Hotel Management System!")
     while True:
-        print('''
+        print(Fore.YELLOW +'''
         +===============================+
         | Please select an option:      |
         +===============================+
@@ -187,14 +176,14 @@ def display_menu():
         |   2    | Open Employee Details |
         +--------+----------------------+
         |   3    | Exit                  |
-        +--------+----------------------+''')
+        +--------+----------------------+'''+Style.RESET_ALL)
         option = int(input("Enter option: "))
 
         if option == 1:
             # Code to open Guest details
-            print("Opening Guest Details...")
+            print(Fore.LIGHTYELLOW_EX+"Opening Guest Details..."+Style.RESET_ALL)
             while True:
-                print('''
+                print(Fore.YELLOW+'''
                 +=====================================+
                 | Please select an  option            |
                 +=====================================+
@@ -215,7 +204,7 @@ def display_menu():
                 |        |   Check-in vs check-out     |
                 +--------+-----------------------------+
                 |   7    | Exit                        |      
-                +--------+-----------------------------+          ''')
+                +--------+-----------------------------+          '''+Style.RESET_ALL)
 
                 sub_option = int(input('Enter option: '))
                 if sub_option == 1:
@@ -237,7 +226,7 @@ def display_menu():
 
         elif option == 2:
             while True:
-                print('''
+                print(Fore.YELLOW+'''
                 Account Book opened:
                 +====================================+
                 | Please select an                   |
@@ -259,7 +248,7 @@ def display_menu():
                 |        |       Salaries            |      
                 +--------+---------------------------+
                 |   7    | Exit                      |
-                +===================================+''')
+                +===================================+'''+Style.RESET_ALL)
                 sub_option = int(input("Enter sub-option: "))
                 if sub_option == 1:
                     display_employee_details()
@@ -287,3 +276,4 @@ def display_menu():
             print("Invalid option. Please try again.")
 
 display_menu()
+
